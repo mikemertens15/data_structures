@@ -13,38 +13,40 @@ class LinkedList {
                 }
         };
         LLNode* head;
-        LLNode* tail;
         int size;
     public:
         LinkedList() {
             size = 0;
             head = new LLNode();
-            tail = new LLNode();
-            head->nextNode = tail;
         }
 
         void printList() {
+            if (size == 0) {
+                cout << "Empty List\n";
+                return;
+            }
             LLNode* current = head->nextNode;
-            while(current->value != NULL) {
+            while(current->nextNode != nullptr) {
                 cout << current->value << " -> ";
                 current = current->nextNode;
             }
+            cout << current->value << "\n";
         }
 
         void addNode(int newVal) {
-            LLNode newNode = LLNode(newVal);
+            LLNode* newNode = new LLNode(newVal);
             LLNode* current = head;
-            while (current->nextNode != tail) {
+            while (current->nextNode != nullptr) {
                 current = current->nextNode;
             }
-            newNode.nextNode = tail;
-            current->nextNode = &newNode;
+            newNode->nextNode = nullptr;
+            current->nextNode = newNode;
+            size++;
         }
 
 };
 
 int main() {
     LinkedList myLL = LinkedList();
-    myLL.addNode(1);
     myLL.printList();
 }
