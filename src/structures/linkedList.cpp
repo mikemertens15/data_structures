@@ -1,4 +1,4 @@
-#include "headers/linkedList.h"
+#include "linkedList.h"
 using namespace std;
 
 class LinkedList {
@@ -45,8 +45,3 @@ class LinkedList {
         }
 
 };
-
-int main() {
-    LinkedList myLL = LinkedList();
-    myLL.printList();
-}
