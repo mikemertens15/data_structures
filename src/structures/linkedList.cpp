@@ -6,6 +6,18 @@ LinkedList::LinkedList() {
     head = new LLNode();
 }
 
+LinkedList::~LinkedList() {
+
+}
+
+void LinkedList::clear() {
+    while (head != nullptr) {
+        LLNode* temp = head;
+        head = head->nextNode;
+        delete temp;
+    }
+}
+
 void LinkedList::printList() {
             if (size == 0) {
                 cout << "Empty List\n";
@@ -25,7 +37,7 @@ void LinkedList::addNode(int newVal) {
             while (current->nextNode != nullptr) {
                 current = current->nextNode;
             }
-            newNode->nextNode = nullptr;
+            //newNode->nextNode = nullptr;
             current->nextNode = newNode;
             size++;        
 }
