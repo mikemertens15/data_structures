@@ -1,7 +1,7 @@
 // Change file name to allTests or something, and make functions for testing each data structure
 // Might get cluncky but we'll see
 #include <iostream>
-#include "../../src/structures/linkedList.h"
+#include "../../src/structures/headers/linkedList.h"
 
 void testLinkedList();
 void testStack();
