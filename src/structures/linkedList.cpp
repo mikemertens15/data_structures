@@ -1,4 +1,4 @@
-#include "linkedList.h"
+#include "headers/linkedList.h"
 using namespace std;
 
 LinkedList::LinkedList() {
