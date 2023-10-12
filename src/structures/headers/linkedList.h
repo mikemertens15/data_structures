@@ -20,11 +20,11 @@ class LinkedList {
         void addNode(int newVal);
         void insert(int newVal);
         void prePend(int newVal);
-        int remove(int position);
+        int remove(int val);
         bool contains(int val);
         void clear();
-        int get();
-        void set(int newVal);
+        int get(int position);
+        void replace(int newVal, int position);
         void reverse();
         void merge(LinkedList listToMerge);
         void sort();

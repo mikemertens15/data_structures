@@ -19,9 +19,20 @@ void testLinkedList() {
     std::cout << "----- Testing Linked List -----" << std::endl;
 
     LinkedList list;
-    list.addNode(5);
-    list.addNode(10);
+
+    std::cout << "----- Adding Nodes -----" << std::endl;
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
     list.printList();
+
+    std::cout << "----- Testing contains ------" << std::endl;
+    std::cout << "Should be true: ";
+    std::cout << list.contains(1) << " " << list.contains(3) << std::endl;
+    std::cout << "Should be false: ";
+    std::cout << list.contains(4) << " " << list.contains(10) << std::endl;
+
+
 }
 
 void testStack() {
