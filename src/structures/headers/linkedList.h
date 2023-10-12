@@ -20,7 +20,7 @@ class LinkedList {
         void addNode(int newVal);
         void insert(int newVal);
         void prePend(int newVal);
-        int remove(int val);
+        void remove(int val);
         bool contains(int val);
         void clear();
         int get(int position);

@@ -32,6 +32,11 @@ void testLinkedList() {
     std::cout << "Should be false: ";
     std::cout << list.contains(4) << " " << list.contains(10) << std::endl;
 
+    std::cout << "----- Testing Remove -----" << std::endl;
+    std::cout << "Should print an error: ";
+    list.remove(10);
+    std::cout<< "Should print a new list: ";
+    list.remove(2);
 
 }
 

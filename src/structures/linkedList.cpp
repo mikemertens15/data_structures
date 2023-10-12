@@ -56,8 +56,8 @@ void LinkedList::prePend(int val) {
 
 };
 
-int LinkedList::remove(int val) {
-
+void LinkedList::remove(int val) {
+    
 };
 
 int LinkedList::get(int position) {
