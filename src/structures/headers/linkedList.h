@@ -16,6 +16,7 @@ class LinkedList {
     public:
         LinkedList();
         ~LinkedList();
+        bool isEmpty();
         void printList();
         void addNode(int newVal);
         void insert(int newVal);

@@ -3,11 +3,15 @@ using namespace std;
 
 LinkedList::LinkedList() {
     size = 0;
-    head = new LLNode();
+    head = nullptr;
 }
 
 LinkedList::~LinkedList() {
     clear();
+}
+
+bool LinkedList::isEmpty() {
+    return size == 0;
 }
 
 void LinkedList::clear() {
@@ -19,11 +23,11 @@ void LinkedList::clear() {
 }
 
 void LinkedList::printList() {
-    if (size == 0) {
+    if (isEmpty()) {
         cout << "Empty List\n";
             return;
     }
-    LLNode* current = head->nextNode;
+    LLNode* current = head;
     while(current->nextNode != nullptr) {
         cout << current->value << " -> ";
         current = current->nextNode;
@@ -33,11 +37,16 @@ void LinkedList::printList() {
 
 void LinkedList::addNode(int newVal) {
     LLNode* newNode = new LLNode(newVal);
-    LLNode* current = head;
-    while (current->nextNode != nullptr) {
-        current = current->nextNode;
+    if (size == 0) {
+        head = newNode;
     }
-    current->nextNode = newNode;
+    else {
+        LLNode* current = head;
+        while (current->nextNode != nullptr) {
+            current = current->nextNode;
+        }
+        current->nextNode = newNode;
+    }
     size++;        
 }
 
@@ -57,7 +66,24 @@ void LinkedList::prePend(int val) {
 };
 
 void LinkedList::remove(int val) {
-    
+
+    if (isEmpty()) {
+        cout << "List is empty!" << endl;
+        return;
+    }
+
+    LLNode* current = head;
+    for (int i=0; i<size-1; i++) {
+        if (current->nextNode->value == val) {
+          current->nextNode = current->nextNode->nextNode;
+          // delete current;  
+          cout << "Deleted node. New list: ";
+          printList();
+          return;
+        }
+        current = current->nextNode;
+    }
+    cout << "This node does not exist!" << endl;
 };
 
 int LinkedList::get(int position) {
