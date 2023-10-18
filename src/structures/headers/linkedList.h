@@ -24,7 +24,7 @@ class LinkedList {
         void remove(int val);
         bool contains(int val);
         void clear();
-        int get(int position);
+        int* get(int position);
         void replace(int newVal, int position);
         void reverse();
         void merge(LinkedList listToMerge);

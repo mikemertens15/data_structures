@@ -61,8 +61,9 @@ bool LinkedList::contains(int val) {
     return false;
 };
 
-void LinkedList::prePend(int val) {
-
+void LinkedList::prePend(int newVal) {
+    LLNode* newNode = new LLNode(newVal, head);
+    head = newNode;
 };
 
 void LinkedList::remove(int val) {
@@ -86,8 +87,13 @@ void LinkedList::remove(int val) {
     cout << "This node does not exist!" << endl;
 };
 
-int LinkedList::get(int position) {
-
+int* LinkedList::get(int position) {
+    LLNode* current = head;
+    for (int i=0; i<position; i++) {
+        if (!current) return nullptr;
+        current = current->nextNode;
+    }
+    return &(current->value);
 };
 
 void LinkedList::replace(int newVal, int position) {
