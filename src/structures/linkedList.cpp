@@ -97,10 +97,16 @@ int* LinkedList::get(int position) {
 };
 
 void LinkedList::replace(int newVal, int position) {
-
+    LLNode* current = head;
+    for (int i=0; i<position; i++) {
+        if (!current) return;
+        current = current->nextNode;
+    }
+    current->value = newVal;
 };
 
 void LinkedList::reverse() {
+    
 
 };
 
