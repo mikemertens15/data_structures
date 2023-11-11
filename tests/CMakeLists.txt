@@ -1,5 +1,5 @@
-add_executable(RunTests
-    structures/testStructures.cpp
+add_executable(RunLinkedListTests
+    structures/testLinkedList.cpp
 )
 
-target_link_libraries(RunTests DataStructures)
+target_link_libraries(RunLinkedListTests DataStructures)

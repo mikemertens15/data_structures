@@ -20,6 +20,7 @@ void LinkedList::clear() {
         head = head->nextNode;
         delete temp;
     }
+    size = 0;
 }
 
 void LinkedList::printList() {
@@ -74,12 +75,10 @@ void LinkedList::remove(int val) {
     }
 
     LLNode* current = head;
-    for (int i=0; i<size-1; i++) {
+    for (int i=0; i<size; i++) {
         if (current->nextNode->value == val) {
           current->nextNode = current->nextNode->nextNode;
-          // delete current;  
-          cout << "Deleted node. New list: ";
-          printList();
+          size -= 1;
           return;
         }
         current = current->nextNode;
@@ -106,8 +105,15 @@ void LinkedList::replace(int newVal, int position) {
 };
 
 void LinkedList::reverse() {
-    
-
+    LLNode* current = head;
+    LLNode* prev = nullptr;
+    LLNode* next = nullptr;
+    while (current != nullptr) {
+        next = current->nextNode;
+        current->nextNode = prev;
+        prev = current;
+        current = next;
+    }
 };
 
 void LinkedList::merge(LinkedList listToMerge) {
