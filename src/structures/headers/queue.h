@@ -19,10 +19,9 @@ class Queue {
         void enqueue(int val);
         int dequeue();
         int peek();
-        int size();
+        int length();
         void clear();
         void print();
-        void swap(Queue qToSwap);
         int rear();
 
 };
