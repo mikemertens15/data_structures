@@ -12,6 +12,10 @@ class Queue {
                 QNode(int iVal, QNode* iNext) : val(iVal), next(iNext) {};
         };
 
+        QNode* front;
+        QNode* back;
+        int size;
+
     public:
 
         Queue(int startingVal);
@@ -23,6 +27,7 @@ class Queue {
         void clear();
         void print();
         int rear();
+        void reverse();
 
 };
 
