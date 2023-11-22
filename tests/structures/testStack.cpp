@@ -2,6 +2,22 @@
 #include <cassert>
 #include "../../src/structures/headers/stack.h"
 
+void test_push();
+void test_pop();
+void test_peek();
+void test_clear();
+void test_reverse();
+
+int main() {
+    test_push();
+    test_pop();
+    test_peek();
+    test_clear();
+    test_reverse();
+    std::cout << "All tests passed!" << std::endl;
+    return 0;
+}
+
 void test_push() {
     std::cout << "----- Testing push -----" << std::endl;
     Stack stack(1);

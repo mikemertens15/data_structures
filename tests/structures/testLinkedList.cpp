@@ -17,6 +17,17 @@ void testSort();
 
 
 int main() {
+    testIsEmpty();
+    testAddNode();
+    testGet();
+    testPrePend();
+    testRemove();
+    testReplace();
+    testClear();
+    testReverse();
+    testMerge();
+    testSort();
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
 
