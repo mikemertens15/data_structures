@@ -69,8 +69,16 @@ void LinkedList::prePend(int newVal) {
 
 void LinkedList::remove(int val) {
 
+    // handle empty list
     if (isEmpty()) {
         cout << "List is empty!" << endl;
+        return;
+    }
+
+    //handle if head is the node to remove
+    if (head->value == val) {
+        head = head->nextNode;
+        size -= 1;
         return;
     }
 
@@ -113,13 +121,35 @@ void LinkedList::reverse() {
         current->nextNode = prev;
         prev = current;
         current = next;
+        if (current == nullptr) {
+            head = prev;
+        }
     }
 };
 
-void LinkedList::merge(LinkedList listToMerge) {
-
+void LinkedList::merge(LinkedList* listToMerge) {
+    LLNode* current = head;
+    while (current->nextNode != nullptr) {
+        current = current->nextNode;
+    }
+    current->nextNode = listToMerge->head;
+    size += listToMerge->size;
 };
 
 void LinkedList::sort() {
+    LLNode* current = head;
+    LLNode* next = nullptr;
+    while (current != nullptr) {
+        next = current->nextNode;
+        while (next != nullptr) {
+            if (current->value > next->value) {
+                int temp = current->value;
+                current->value = next->value;
+                next->value = temp;
+            }
+            next = next->nextNode;
+        }
+        current = current->nextNode;
+    }
 
 };

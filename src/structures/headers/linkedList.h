@@ -27,7 +27,7 @@ class LinkedList {
         int* get(int position);
         void replace(int newVal, int position);
         void reverse();
-        void merge(LinkedList listToMerge);
+        void merge(LinkedList* listToMerge);
         void sort();
 
 };

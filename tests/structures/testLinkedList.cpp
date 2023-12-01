@@ -37,6 +37,7 @@ void testIsEmpty() {
     assert(list.isEmpty() == true);
     list.addNode(1);
     assert(list.isEmpty() == false);
+    std::cout << "----- isEmpty passed -----" << std::endl;
 }
 
 void testAddNode() {
@@ -48,6 +49,7 @@ void testAddNode() {
     assert(*list.get(1) == 2);
     list.addNode(3);
     assert(*list.get(2) == 3);
+    std::cout << "----- addNode passed -----" << std::endl;
 }
 
 void testGet() {
@@ -60,6 +62,7 @@ void testGet() {
     assert(*list.get(1) == 2);
     assert(*list.get(2) == 3);
     assert(list.get(10) == nullptr);
+    std::cout << "----- get passed -----" << std::endl;
 }
 
 void testPrePend() {
@@ -74,6 +77,7 @@ void testPrePend() {
     assert(*list.get(0) == 3);
     assert(*list.get(1) == 2);
     assert(*list.get(2) == 1);
+    std::cout << "----- prePend passed -----" << std::endl;
 }
 
 void testRemove() {
@@ -89,6 +93,7 @@ void testRemove() {
     assert(*list.get(0) == 3);
     list.remove(3);
     assert(list.isEmpty() == true);
+    std::cout << "----- remove passed -----" << std::endl;
 }
 
 void testReplace() {
@@ -103,6 +108,7 @@ void testReplace() {
     assert(*list.get(1) == 5);
     list.replace(6, 2);
     assert(*list.get(2) == 6);
+    std::cout << "----- replace passed -----" << std::endl;
 }
 
 void testClear() {
@@ -113,6 +119,7 @@ void testClear() {
     list.addNode(3);
     list.clear();
     assert(list.isEmpty() == true);
+    std::cout << "----- clear passed -----" << std::endl;
 }
 
 void testReverse() {
@@ -125,6 +132,7 @@ void testReverse() {
     assert(*list.get(0) == 3);
     assert(*list.get(1) == 2);
     assert(*list.get(2) == 1);
+    std::cout << "----- reverse passed -----" << std::endl;
 }
 
 void testMerge() {
@@ -137,13 +145,14 @@ void testMerge() {
     list2.addNode(4);
     list2.addNode(5);
     list2.addNode(6);
-    list1.merge(list2);
+    list1.merge(&list2);
     assert(*list1.get(0) == 1);
     assert(*list1.get(1) == 2);
     assert(*list1.get(2) == 3);
     assert(*list1.get(3) == 4);
     assert(*list1.get(4) == 5);
     assert(*list1.get(5) == 6);
+    std::cout << "----- merge passed -----" << std::endl;
 }
 
 void testSort() {
@@ -156,4 +165,5 @@ void testSort() {
     assert(*list.get(0) == 1);
     assert(*list.get(1) == 2);
     assert(*list.get(2) == 3);
+    std::cout << "----- sort passed -----" << std::endl;
 }
