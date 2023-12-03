@@ -20,6 +20,7 @@ class Tree {
 
         Tree(int rootVal);
         ~Tree();
+        bool isEmpty();
         void insert(int val); // inserts given value to branch of the tree
         int remove(int valToRemove); // removes element and returns it
         bool search(int val); // returns true if found, and prints path to element
@@ -27,12 +28,11 @@ class Tree {
         int maximum(); // returns the biggest element in the tree
         int height();
         int parent(int valToFind); // returns the parent value of the given node
-        void clear();
-        void print();
-        void inOrderTraversal();
-        void preOrderTraversal();
-        void postOrderTraversal();
-        void levelOrderTraversal();
+        void clear(); // clears the tree
+        void inOrderTraversal(); // prints the tree in order
+        void preOrderTraversal(); // prints the tree in pre order
+        void postOrderTraversal(); // prints the tree in post order
+        void levelOrderTraversal(); // prints the tree in level order
 };
 
 #endif

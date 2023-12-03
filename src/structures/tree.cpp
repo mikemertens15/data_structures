@@ -116,3 +116,7 @@ int Tree::maximum() {
     }
     return temp->val;
 }
+
+void Tree::inOrderTraversal() {
+    
+}
