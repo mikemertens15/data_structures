@@ -22,7 +22,7 @@ int Stack::pop() {
     }
     int val = top->val;
     SNode* temp = top;
-    top = top->nextUp;
+    top = top->next;
     delete temp;
     size--;
     return val;
@@ -46,7 +46,7 @@ void Stack::print() {
     SNode* temp = top;
     while (temp != NULL) {
         cout << temp->val << " ";
-        temp = temp->nextUp;
+        temp = temp->next;
     }
     cout << endl;
 }
@@ -60,8 +60,8 @@ void Stack::reverse() {
     SNode* prev = NULL;
     SNode* next = NULL;
     while (temp != NULL) {
-        next = temp->nextUp;
-        temp->nextUp = prev;
+        next = temp->next;
+        temp->next = prev;
         prev = temp;
         temp = next;
     }

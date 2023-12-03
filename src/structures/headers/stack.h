@@ -8,8 +8,8 @@ class Stack {
         class SNode {
             public:
                 int val;
-                SNode* nextUp;
-                SNode(int value, SNode* nextUpNode) : val(value), nextUp(nextUpNode) {};
+                SNode* next;
+                SNode(int value, SNode* nextNode) : val(value), next(nextNode) {};
         };
         SNode* top;
         int size;
