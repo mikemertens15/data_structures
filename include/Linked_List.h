@@ -30,6 +30,8 @@ public:
         }
     }
 
+    bool is_empty() { return head == nullptr; }
+
     void insert_at_front(T data)
     {
         Node<T> *new_node = new Node<T>(data);
@@ -38,15 +40,17 @@ public:
         length++;
     }
 
-    void insert_at_back(T data) 
+    void insert_at_back(T data)
     {
-        Node<T>* new_node = new Node<T>(data);
-        if (head == nullptr) {
+        Node<T> *new_node = new Node<T>(data);
+        if (head == nullptr)
+        {
             head = new_node;
             return;
         }
-        Node<T>* current = head;
-        while (current->next != nullptr) {
+        Node<T> *current = head;
+        while (current->next != nullptr)
+        {
             current = current->next;
         }
         current->next = new_node;
@@ -62,45 +66,65 @@ public:
 
     void delete_back()
     {
-        Node<T>* current = head;
-        while (current->next->next != nullptr) {
+        Node<T> *current = head;
+        while (current->next->next != nullptr)
+        {
             current = current->next;
         }
-        Node<T>* temp = current->next;
+        Node<T> *temp = current->next;
         current->next = nullptr;
         delete temp;
     }
     void delete_value(T data)
     {
-        Node<T>* current = head;
-        while (current->next->data != data) {
+        // if list is empty
+        if (this->is_empty())
+        {
+            return;
+        }
+
+        // if head is the value
+        if (head->data == data)
+        {
+            Node<T> *temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+
+        Node<T> *current = head;
+        while (current->next != nullptr && current->next->data != data)
+        {
             current = current->next;
         }
-        Node<T>* temp = current->next;
-        current->next = current->next->next;
-        delete temp;
+
+        if (current->next != nullptr)
+        {
+            Node<T> *temp = current->next;
+            current->next = current->next->next;
+            delete temp;
+        }
     }
 
     Node<T> *search(T data)
     {
-        Node<T>* current = head;
-        while (current->data != data && current != nullptr) {
+        Node<T> *current = head;
+        while (current->data != data && current != nullptr)
+        {
             current = current->next;
         }
         return current;
     }
 
-    bool is_empty() { return head == nullptr; }
     T peek_front() { return head->data; }
-    T peek_back() 
+    T peek_back()
     {
-        Node<T>* current = head;
-        while (current->next != nullptr) {
+        Node<T> *current = head;
+        while (current->next != nullptr)
+        {
             current = current->next;
         }
         return current->data;
     }
-    int size() { return length;}
-
-
+    int size() { return length; }
 };
