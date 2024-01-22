@@ -1,1 +1,0 @@
-add_library(DataStructures structures/linkedList.cpp structures/stack.cpp structures/queue.cpp structures/tree.cpp structures/graph.cpp)
