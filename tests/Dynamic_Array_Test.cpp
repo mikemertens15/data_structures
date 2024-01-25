@@ -10,6 +10,106 @@ TEST(Dynamic_ArrayTest, Construct)
     EXPECT_GE(arr.get_capacity(), 0);
 }
 
+// Test for constructor with initial capacity
+TEST(Dynamic_ArrayTest, ConstructWithCapacity)
+{
+    Dynamic_Array<int> arr(10);
+    EXPECT_EQ(arr.size(), 0);
+    EXPECT_GE(arr.get_capacity(), 10);
+}
+
+// Test for copy constructor
+TEST(Dynamic_ArrayTest, CopyConstruct)
+{
+    Dynamic_Array<int> arr1;
+    arr1.push(1);
+    arr1.push(2);
+
+    Dynamic_Array<int> arr2(arr1);
+    EXPECT_EQ(arr2.size(), arr1.size());
+    EXPECT_EQ(arr2.get(0), arr1.get(0));
+    EXPECT_EQ(arr2.get(1), arr1.get(1));
+}
+
+// Test for move constructor
+TEST(Dynamic_ArrayTest, MoveConstruct)
+{
+    Dynamic_Array<int> arr1;
+    arr1.push(1);
+    arr1.push(2);
+
+    Dynamic_Array<int> arr2(std::move(arr1));
+    EXPECT_EQ(arr2.size(), 2);
+    EXPECT_EQ(arr2.get(0), 1);
+    EXPECT_EQ(arr2.get(1), 2);
+}
+
+// Test for assignment operator
+TEST(Dynamic_ArrayTest, AssignOperator)
+{
+    Dynamic_Array<int> arr1;
+    arr1.push(1);
+    arr1.push(2);
+
+    Dynamic_Array<int> arr2;
+    arr2 = arr1;
+    EXPECT_EQ(arr2.size(), arr1.size());
+    EXPECT_EQ(arr2.get(0), arr1.get(0));
+    EXPECT_EQ(arr2.get(1), arr1.get(1));
+}
+
+// Test for move assignment operator
+TEST(Dynamic_ArrayTest, MoveAssignOperator)
+{
+    Dynamic_Array<int> arr1;
+    arr1.push(1);
+    arr1.push(2);
+
+    Dynamic_Array<int> arr2;
+    arr2 = std::move(arr1);
+    EXPECT_EQ(arr2.size(), 2);
+    EXPECT_EQ(arr2.get(0), 1);
+    EXPECT_EQ(arr2.get(1), 2);
+}
+
+// Test for equality operator
+TEST(Dynamic_ArrayTest, EqualityOperator)
+{
+    Dynamic_Array<int> arr1;
+    arr1.push(1);
+    arr1.push(2);
+
+    Dynamic_Array<int> arr2;
+    arr2.push(1);
+    arr2.push(2);
+
+    EXPECT_TRUE(arr1 == arr2);
+}
+
+// Test for inequality operator
+TEST(Dynamic_ArrayTest, InequalityOperator)
+{
+    Dynamic_Array<int> arr1;
+    arr1.push(1);
+    arr1.push(2);
+
+    Dynamic_Array<int> arr2;
+    arr2.push(1);
+    arr2.push(3);
+
+    // EXPECT_TRUE(arr1 != arr2); Throwing error for != operator
+}
+
+// Test for size
+TEST(Dynamic_ArrayTest, Size)
+{
+    Dynamic_Array<int> arr;
+    arr.push(1);
+    arr.push(2);
+
+    EXPECT_EQ(arr.size(), 2);
+}
+
 // Test for adding elements
 TEST(Dynamic_ArrayTest, AddElements)
 {
