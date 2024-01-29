@@ -10,16 +10,35 @@ struct Node
 };
 
 template <typename T>
-class Stack {
-    private:
-        Node<T> *head;
-        int length;
+class Stack
+{
+private:
+    Node<T> *head;
+    int length;
 
-    public:
-    
-        Stack() : head(nullptr) {}
-        Stack(T data) {
-            head = new Node<T>(data);
-            length = 1;
-        }
+public:
+    // Default Constructor
+    Stack() : head(nullptr) {}
+
+    // Constructor with initial value
+    Stack(T data)
+    {
+        head = new Node<T>(data);
+        length = 1;
+    }
+
+    // Copy Constructor
+    Stack(Stack &stack)
+    {
+    }
+
+    // Move Constructor
+    Stack(Stack &&stack)
+    {
+    }
+
+    // Destructor
+    ~Stack()
+    {
+    }
 };
