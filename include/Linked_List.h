@@ -127,4 +127,39 @@ public:
         return current->data;
     }
     int size() { return length; }
+
+    void clear()
+    {
+        Node<T> *current = head;
+        while (current != nullptr)
+        {
+            Node<T> *next = current->next;
+            delete current;
+            current = next;
+        }
+        head = nullptr;
+    }
+
+    Node<T> *sort()
+    {
+        Node<T> *current = head;
+        Node<T> *next = nullptr;
+        T temp;
+        while (current != nullptr)
+        {
+            next = current->next;
+            while (next != nullptr)
+            {
+                if (current->data > next->data)
+                {
+                    temp = current->data;
+                    current->data = next->data;
+                    next->data = temp;
+                }
+                next = next->next;
+            }
+            current = current->next;
+        }
+        return head;
+    }
 };
