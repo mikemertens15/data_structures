@@ -29,18 +29,30 @@ public:
     }
 
     // Copy Constructor
-    Stack(Stack &stack)
+    Stack(const Stack &stack)
     {
+        this->head = stack.head;
+        this->stack_size = stack.stack_size;
     }
 
     // Move Constructor
     Stack(Stack &&stack)
     {
+        this->head = stack.head;
+        this->stack_size = stack.stack_size;
+        stack.head = nullptr;
+        stack.stack_size = 0;
     }
 
     // Destructor
     ~Stack()
     {
+        while (head != nullptr)
+        {
+            Node<T> *temp = head;
+            head = head->next;
+            delete temp;
+        }
     }
 
     int size() { return stack_size; }
