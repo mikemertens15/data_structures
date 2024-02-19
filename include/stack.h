@@ -1,14 +1,6 @@
 #pragma once
 #include <stdexcept>
-
-template <typename T>
-struct Node
-{
-    T data;
-    Node *next;
-
-    Node(T data) : data(data), next(nullptr) {}
-};
+#include "Node.h"
 
 template <typename T>
 class Stack
